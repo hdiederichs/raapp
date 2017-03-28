@@ -1,0 +1,32 @@
+[
+  {
+    "userName": "tor",
+    "password": "test1",
+    "customer": {
+      "firstName": "Foo",
+      "lastName": "Bar",
+      "emailAddress": "foo.bar@example.com",
+      "mobilPhoneNumber": "01234/56789"
+    }
+  },
+  {
+    "userName": "hds",
+    "password": "test2",
+    "customer": {
+      "firstName": "Bar",
+      "lastName": "Foo",
+      "emailAddress": "bar.foo@example.com",
+      "mobilPhoneNumber": "01234/56789"
+    }
+  },
+  {
+    "userName": "kwb",
+    "password": "test3",
+    "customer": {
+      "firstName": "FooBar",
+      "lastName": "Bar",
+      "emailAddress": "foobar.bar@example.com",
+      "mobilPhoneNumber": "01234/56789"
+    }
+  }
+]

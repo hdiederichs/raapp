@@ -1,24 +1,30 @@
 package org.raapp.model;
 
+import org.springframework.data.annotation.Id;
+
 /**
  * A model class for user information
  */
 @SuppressWarnings("unused")
 public class User {
 
+    @Id
+    private String id;
     private String userName;
-
     private String password;
-
     private Customer customer;
+    private String currentAchievementId;
+    private double score;
 
     public User() {
     }
 
-    public User(String userName, String password, Customer customer) {
+    public User(String userName, String password, Customer customer, String currentAchievementId, double score) {
         this.userName = userName;
         this.password = password;
         this.customer = customer;
+        this.currentAchievementId = currentAchievementId;
+        this.score = score;
     }
 
     public String getUserName() {
@@ -45,6 +51,22 @@ public class User {
         this.customer = customer;
     }
 
+    public String getCurrentAchievementId() {
+        return currentAchievementId;
+    }
+
+    public void setCurrentAchievementId(String currentAchievementId) {
+        this.currentAchievementId = currentAchievementId;
+    }
+
+    public double getScore() {
+        return score;
+    }
+
+    public void setScore(double score) {
+        this.score = score;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -52,26 +74,37 @@ public class User {
 
         User user = (User) o;
 
+        if (Double.compare(user.score, score) != 0) return false;
+        if (id != null ? !id.equals(user.id) : user.id != null) return false;
         if (userName != null ? !userName.equals(user.userName) : user.userName != null) return false;
         if (password != null ? !password.equals(user.password) : user.password != null) return false;
-        return customer != null ? customer.equals(user.customer) : user.customer == null;
+        if (customer != null ? !customer.equals(user.customer) : user.customer != null) return false;
+        return currentAchievementId != null ? currentAchievementId.equals(user.currentAchievementId) : user.currentAchievementId == null;
     }
 
     @Override
     public int hashCode() {
-        int result = 0;
+        int result;
+        long temp;
+        result = id != null ? id.hashCode() : 0;
         result = 31 * result + (userName != null ? userName.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (customer != null ? customer.hashCode() : 0);
+        result = 31 * result + (currentAchievementId != null ? currentAchievementId.hashCode() : 0);
+        temp = Double.doubleToLongBits(score);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "userName='" + userName + '\'' +
+                "id='" + id + '\'' +
+                ", userName='" + userName + '\'' +
                 ", password='" + password + '\'' +
                 ", customer=" + customer +
+                ", currentAchievementId='" + currentAchievementId + '\'' +
+                ", score=" + score +
                 '}';
     }
 }

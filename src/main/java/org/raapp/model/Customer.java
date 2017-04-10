@@ -1,15 +1,10 @@
 package org.raapp.model;
 
-import org.springframework.data.annotation.Id;
-
 /**
  * A model class for customer information
  */
 @SuppressWarnings("unused")
 public class Customer {
-
-    @Id
-    private String id;
     private String firstName;
     private String lastName;
     private String emailAddress;
@@ -23,14 +18,6 @@ public class Customer {
         this.lastName = lastName;
         this.emailAddress = emailAddress;
         this.mobilPhoneNumber = mobilPhoneNumber;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getFirstName() {
@@ -72,7 +59,6 @@ public class Customer {
 
         Customer customer = (Customer) o;
 
-        if (id != null ? !id.equals(customer.id) : customer.id != null) return false;
         if (firstName != null ? !firstName.equals(customer.firstName) : customer.firstName != null) return false;
         if (lastName != null ? !lastName.equals(customer.lastName) : customer.lastName != null) return false;
         if (emailAddress != null ? !emailAddress.equals(customer.emailAddress) : customer.emailAddress != null)
@@ -82,8 +68,7 @@ public class Customer {
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
+        int result = firstName != null ? firstName.hashCode() : 0;
         result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
         result = 31 * result + (emailAddress != null ? emailAddress.hashCode() : 0);
         result = 31 * result + (mobilPhoneNumber != null ? mobilPhoneNumber.hashCode() : 0);
@@ -93,8 +78,7 @@ public class Customer {
     @Override
     public String toString() {
         return "Customer{" +
-                "id='" + id + '\'' +
-                ", firstName='" + firstName + '\'' +
+                "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", emailAddress='" + emailAddress + '\'' +
                 ", mobilPhoneNumber='" + mobilPhoneNumber + '\'' +

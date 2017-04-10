@@ -15,4 +15,5 @@ public interface UserRepository extends MongoRepository<User, String> {
 
     User getFirstByCustomer_FirstName(String firstName);
     List<User> findByCustomer_LastName(String lastName);
+
 }

@@ -13,15 +13,21 @@ public class Achievement {
     private String title;
     private String description;
     private double difficulty;
+    private double difficultyUser;
+    private long averageSolvingTime;
+    private double averageSolvingRate;
 
     public Achievement() {
 
     }
 
-    public Achievement(String title, String description, double difficulty) {
+    public Achievement(String title, String description, double difficulty, double difficultyUser, long averageSolvingTime, double averageSolvingRate) {
         this.title = title;
         this.description = description;
         this.difficulty = difficulty;
+        this.difficultyUser = difficultyUser;
+        this.averageSolvingTime = averageSolvingTime;
+        this.averageSolvingRate = averageSolvingRate;
     }
 
     public String getId() {
@@ -56,6 +62,30 @@ public class Achievement {
         this.difficulty = difficulty;
     }
 
+    public double getDifficultyUser() {
+        return difficultyUser;
+    }
+
+    public void setDifficultyUser(double difficultyUser) {
+        this.difficultyUser = difficultyUser;
+    }
+
+    public long getAverageSolvingTime() {
+        return averageSolvingTime;
+    }
+
+    public void setAverageSolvingTime(long averageSolvingTime) {
+        this.averageSolvingTime = averageSolvingTime;
+    }
+
+    public double getAverageSolvingRate() {
+        return averageSolvingRate;
+    }
+
+    public void setAverageSolvingRate(double averageSolvingRate) {
+        this.averageSolvingRate = averageSolvingRate;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -64,6 +94,9 @@ public class Achievement {
         Achievement that = (Achievement) o;
 
         if (Double.compare(that.difficulty, difficulty) != 0) return false;
+        if (Double.compare(that.difficultyUser, difficultyUser) != 0) return false;
+        if (averageSolvingTime != that.averageSolvingTime) return false;
+        if (Double.compare(that.averageSolvingRate, averageSolvingRate) != 0) return false;
         if (id != null ? !id.equals(that.id) : that.id != null) return false;
         if (title != null ? !title.equals(that.title) : that.title != null) return false;
         return description != null ? description.equals(that.description) : that.description == null;
@@ -78,6 +111,11 @@ public class Achievement {
         result = 31 * result + (description != null ? description.hashCode() : 0);
         temp = Double.doubleToLongBits(difficulty);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(difficultyUser);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + (int) (averageSolvingTime ^ (averageSolvingTime >>> 32));
+        temp = Double.doubleToLongBits(averageSolvingRate);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
     }
 
@@ -87,7 +125,10 @@ public class Achievement {
                 "id='" + id + '\'' +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
-                ", difficulty='" + difficulty + '\'' +
+                ", difficulty=" + difficulty +
+                ", difficultyUser=" + difficultyUser +
+                ", averageSolvingTime=" + averageSolvingTime +
+                ", averageSolvingRate=" + averageSolvingRate +
                 '}';
     }
 }

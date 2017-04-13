@@ -15,16 +15,15 @@ public class User {
     private Customer customer;
     private String currentAchievementId;
     private double score;
+    private int level;
 
-    public User() {
-    }
-
-    public User(String userName, String password, Customer customer, String currentAchievementId, double score) {
+    public User(String userName, String password, Customer customer, String currentAchievementId, double score, int level) {
         this.userName = userName;
         this.password = password;
         this.customer = customer;
         this.currentAchievementId = currentAchievementId;
         this.score = score;
+        this.level = level;
     }
 
     public String getUserName() {
@@ -67,6 +66,14 @@ public class User {
         this.score = score;
     }
 
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -75,6 +82,7 @@ public class User {
         User user = (User) o;
 
         if (Double.compare(user.score, score) != 0) return false;
+        if (level != user.level) return false;
         if (id != null ? !id.equals(user.id) : user.id != null) return false;
         if (userName != null ? !userName.equals(user.userName) : user.userName != null) return false;
         if (password != null ? !password.equals(user.password) : user.password != null) return false;
@@ -93,6 +101,7 @@ public class User {
         result = 31 * result + (currentAchievementId != null ? currentAchievementId.hashCode() : 0);
         temp = Double.doubleToLongBits(score);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + level;
         return result;
     }
 
@@ -105,6 +114,7 @@ public class User {
                 ", customer=" + customer +
                 ", currentAchievementId='" + currentAchievementId + '\'' +
                 ", score=" + score +
+                ", level=" + level +
                 '}';
     }
 }

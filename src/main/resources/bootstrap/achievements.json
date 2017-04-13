@@ -1,3 +1,18 @@
 [
-
+  {
+    "title": "Bringe eine dir fremden Person zum Lächeln",
+    "description": "Testbeschreibung",
+    "difficulty": 2.0,
+    "difficultyUser": 0.0,
+    "averageSolvingTime": 0,
+    "averageSolvingRate": 0.0
+  },
+  {
+    "title": "Iss ein Stück Obst",
+    "description": "Testbeschreibung",
+    "difficulty": 0.5,
+    "difficultyUser": 0.0,
+    "averageSolvingTime": 0,
+    "averageSolvingRate": 0.0
+  }
 ]

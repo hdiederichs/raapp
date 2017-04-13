@@ -7,7 +7,9 @@
       "lastName": "Bar",
       "emailAddress": "foo.bar@example.com",
       "mobilPhoneNumber": "01234/56789"
-    }
+    },
+    "score": 0.0,
+    "level": 1
   },
   {
     "userName": "hds",
@@ -17,7 +19,9 @@
       "lastName": "Foo",
       "emailAddress": "bar.foo@example.com",
       "mobilPhoneNumber": "01234/56789"
-    }
+    },
+    "score": 0.0,
+    "level": 1
   },
   {
     "userName": "kwb",
@@ -27,6 +31,8 @@
       "lastName": "Bar",
       "emailAddress": "foobar.bar@example.com",
       "mobilPhoneNumber": "01234/56789"
-    }
+    },
+    "score": 0.0,
+    "level": 1
   }
 ]

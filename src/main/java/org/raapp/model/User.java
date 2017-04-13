@@ -17,6 +17,9 @@ public class User {
     private double score;
     private int level;
 
+    public User() {
+    }
+
     public User(String userName, String password, Customer customer, String currentAchievementId, double score, int level) {
         this.userName = userName;
         this.password = password;
